@@ -38,6 +38,9 @@
 
   <!-- ========== HERO ========== -->
   <section class="hero">
+    <!-- 3D Crystalline Star (background) -->
+    <canvas id="orb"></canvas>
+
     <div class="hero-content fade-in">
       <div class="hero-label" data-lang="en">Coaching &middot; Activation &middot; Transformation</div>
       <div class="hero-label" data-lang="nl">Coaching &middot; Activatie &middot; Transformatie</div>
@@ -362,27 +365,18 @@
   <section>
     <div class="container">
       <div class="section-title fade-in">
-        <span class="label" data-lang="en">Free resources</span>
-        <span class="label" data-lang="nl">Gratis bronnen</span>
-        <h2 data-lang="en">Start here. For free.</h2>
-        <h2 data-lang="nl">Begin hier. Gratis.</h2>
-        <p data-lang="en">Download a guide and take the first step back to yourself.</p>
-        <p data-lang="nl">Download een gids en zet de eerste stap terug naar jezelf.</p>
+        <span class="label" data-lang="en">Discover your spark</span>
+        <span class="label" data-lang="nl">Ontdek jouw vonk</span>
+        <h2 data-lang="en">What's blocking your spark?</h2>
+        <h2 data-lang="nl">Wat blokkeert jouw vonk?</h2>
+        <p data-lang="en">Take a free 2-minute quiz and find out your Spark Archetype, what's been holding you back, and the first step to reignite.</p>
+        <p data-lang="nl">Doe een gratis 2-minuten quiz en ontdek jouw Vonk Archetype, wat je heeft tegengehouden, en de eerste stap om opnieuw te ontbranden.</p>
       </div>
 
-      <div class="lead-magnet-hero fade-in" style="max-width:700px;margin:0 auto;text-align:center;">
-        <div style="background:var(--cream);border-radius:var(--radius-lg);padding:60px 48px;">
-          <div style="font-size:48px;margin-bottom:16px;">&#x2728;</div>
-          <h3 data-lang="en">Rediscover Your Spark</h3>
-          <h3 data-lang="nl">Herontdek Je Vonk</h3>
-          <p data-lang="en" style="color:var(--gray);margin-bottom:24px;">A free guide to reconnecting with what lights you up, even if you've forgotten what that is. Get it straight to your inbox.</p>
-          <p data-lang="nl" style="color:var(--gray);margin-bottom:24px;">Een gratis gids om je te herverbinden met wat je doet oplichten, zelfs als je vergeten bent wat dat is. Direct in je inbox.</p>
-          <form class="lead-form" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
-            <input type="text" name="name" placeholder="Your name" style="padding:14px 20px;border:1px solid var(--light-gray);border-radius:50px;font-family:var(--font-family);font-size:15px;min-width:180px;outline:none;" required>
-            <input type="email" name="email" placeholder="Your email" style="padding:14px 20px;border:1px solid var(--light-gray);border-radius:50px;font-family:var(--font-family);font-size:15px;min-width:220px;outline:none;" required>
-            <button type="submit" class="btn btn-gold" data-lang="en">Send Me the Guide</button>
-            <button type="submit" class="btn btn-gold" data-lang="nl">Stuur Me de Gids</button>
-          </form>
+      <div style="max-width:640px;margin:0 auto;">
+        <div class="qzzr-wrapper" data-is-qzzr="true" data-rid-id="7L3DgQtn" data-auto-scroll="true" data-is-fixed-height-enabled="false" data-bg="#fff" data-fg="#00205b" style="margin:0 auto;max-width:100%;width:640px;">
+          <script src="https://qzzr.com/embed/build-embedjs/embedV2.js" async defer></script>
+          <iframe title="Discover What's Blocking Your Spark" src="https://qzzr.com/embed/a/7L3DgQtn?lazyImages=false&staticHeight=false" allow="autoplay" referrerpolicy="strict-origin" loading="lazy" style="width:100%;min-height:500px;border:none;border-radius:12px;"></iframe>
         </div>
       </div>
     </div>
@@ -435,8 +429,8 @@
       <div class="footer-col">
         <h4 data-lang="en">Free Resources</h4>
         <h4 data-lang="nl">Gratis Bronnen</h4>
-        <a href="#" data-lang="en">Rediscover Your Spark</a>
-        <a href="#" data-lang="nl">Herontdek Je Vonk</a>
+        <a href="https://qzzr.com/view/7L3DgQtn" data-lang="en">Spark Archetype Quiz</a>
+        <a href="https://qzzr.com/view/7L3DgQtn" data-lang="nl">Vonk Archetype Quiz</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -445,5 +439,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/orb.js"></script>
 </body>
 </html>

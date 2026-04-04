@@ -451,6 +451,23 @@ section {
   line-height: 1.7;
 }
 
+/* --- Hero Orb (background) --- */
+#orb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: none;
+  opacity: 0.22;
+}
+
+#orb:active {
+  cursor: grabbing;
+}
+
 .hero-cta {
   display: flex;
   gap: 16px;
