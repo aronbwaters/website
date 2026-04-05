@@ -22,6 +22,20 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.lang-toggle button').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.setLang === lang);
     });
+
+    // Fix <select> dropdowns: ensure the selected option is a visible one
+    document.querySelectorAll('select').forEach(sel => {
+      const current = sel.options[sel.selectedIndex];
+      if (current && current.style.display === 'none') {
+        // Find the first visible option and select it
+        for (let i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].style.display !== 'none') {
+            sel.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    });
   }
 
   // Init language toggle buttons
@@ -31,6 +45,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Set initial language
   setLanguage(currentLang);
+
+  // --- Logo glow mouse-follow ---
+  document.querySelectorAll('.nav-logo').forEach(logo => {
+    logo.addEventListener('mousemove', (e) => {
+      const rect = logo.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      logo.style.setProperty('--glow-x', x + '%');
+      logo.style.setProperty('--glow-y', y + '%');
+    });
+  });
 
   // --- Navbar scroll effect ---
   const navbar = document.querySelector('.navbar');
@@ -93,6 +118,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- Accordion (speaking page) ---
+  document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.accordion-trigger').forEach(t => {
+        t.setAttribute('aria-expanded', 'false');
+        t.nextElementSibling.classList.remove('open');
+      });
+      if (!expanded) {
+        trigger.setAttribute('aria-expanded', 'true');
+        trigger.nextElementSibling.classList.add('open');
+      }
+    });
+  });
+
   // --- Smooth scroll for anchor links ---
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
@@ -127,6 +167,23 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.textContent = originalText;
         btn.disabled = false;
         contactForm.reset();
+      }, 3000);
+    });
+  }
+
+  // --- Speaking form handling ---
+  const speakingForm = document.querySelector('#speaking-form');
+  if (speakingForm) {
+    speakingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = speakingForm.querySelector('button[type="submit"]');
+      const originalText = btn.textContent;
+      btn.textContent = currentLang === 'nl' ? 'Verstuurd!' : 'Sent!';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        speakingForm.reset();
       }, 3000);
     });
   }

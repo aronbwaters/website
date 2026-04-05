@@ -59,6 +59,7 @@
   let lastMouseX = 0, lastMouseY = 0, lastMouseTime = 0;
   let pulse = 0;
   let frame = 0;
+  const isMobile = window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window;
 
   function rotatePoint(p, rx, ry) {
     let [x, y, z] = p;
@@ -91,8 +92,9 @@
       rotX += (targetRotX - rotX) * 0.04;
       rotY += (targetRotY - rotY) * 0.04;
     } else {
-      // Gentle auto-rotation with figure-8 drift
-      autoRotY += 0.002;
+      // Auto-rotation — faster on mobile so the star keeps spinning visibly
+      const spinSpeed = isMobile ? 0.008 : 0.002;
+      autoRotY += spinSpeed;
       rotY += (autoRotY - rotY) * 0.02;
       const driftX = Math.sin(frame * 0.006) * 0.35;
       rotX += (driftX - rotX) * 0.02;
