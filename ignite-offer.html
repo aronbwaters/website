@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ignite Your Spark | Aron B. Waters</title>
+  <meta name="description" content="The 7-Day Spark Challenge that helps you uncover what's been buried beneath the noise, the doubt, and the performing.">
+  <link rel="icon" type="image/png" href="assets/img/abw-monogram.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+  <style>
+    :root {
+      --gold: #e0a010;
+      --gold-light: #f5d060;
+      --gold-dark: #b8830d;
+      --black: #161616;
+      --white: #ffffff;
+      --off-white: #faf8f4;
+      --cream: #f5f0e8;
+      --gray: #666666;
+      --dark-gray: #333333;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--black);
+      line-height: 1.7;
+      background: var(--white);
+    }
+
+    /* --- LOGO --- */
+    .offer-logo {
+      background: var(--black);
+      text-align: center;
+      padding: 20px 24px;
+    }
+    .offer-logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #b89a3a;
+    }
+
+    /* --- SECTIONS --- */
+    .offer-section {
+      padding: 80px 24px;
+    }
+    .offer-section.dark {
+      background: var(--black);
+      color: var(--white);
+    }
+    .offer-section.cream {
+      background: var(--cream);
+    }
+    .offer-section.gold-section {
+      background: var(--gold);
+      color: var(--black);
+    }
+    .offer-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .offer-container-wide {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .text-center { text-align: center; }
+    .text-gold { color: var(--gold); }
+    .text-muted { color: var(--gray); }
+
+    /* --- HERO --- */
+    .offer-hero {
+      background: var(--black);
+      padding: 60px 24px 80px;
+      text-align: center;
+      color: var(--white);
+    }
+    .offer-hero h1 {
+      font-size: clamp(28px, 4.5vw, 48px);
+      font-weight: 700;
+      line-height: 1.2;
+      max-width: 750px;
+      margin: 0 auto 20px;
+    }
+    .offer-hero .subtitle {
+      font-size: 18px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .offer-hero .available {
+      display: inline-block;
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+
+    /* --- VIDEO PLACEHOLDER --- */
+    .video-placeholder {
+      max-width: 600px;
+      margin: 0 auto 32px;
+      aspect-ratio: 16/9;
+      background: #222;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(224,160,16,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .video-placeholder .play-btn {
+      width: 64px;
+      height: 64px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-placeholder .play-btn svg { margin-left: 4px; }
+    .video-caption {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 32px;
+    }
+
+    /* --- CTA BUTTON --- */
+    .btn-cta {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 16px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+    .btn-cta.full-width {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* --- PRICING --- */
+    .price-block { text-align: center; margin: 32px 0 8px; }
+    .price-original {
+      font-size: 18px;
+      color: var(--gray);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+    .price-today {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .price-today .amount {
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .price-note {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 12px;
+    }
+    .dark .price-note { color: rgba(255,255,255,0.35); }
+    .dark .price-original { color: rgba(255,255,255,0.4); }
+
+    /* --- SECTION TITLES --- */
+    .section-label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(24px, 3.5vw, 40px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .section-subtitle {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 640px;
+    }
+    .text-center .section-subtitle { margin: 0 auto; }
+    .dark .section-subtitle { color: rgba(255,255,255,0.55); }
+
+    /* --- HONEST SECTION --- */
+    .honest-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 40px;
+      align-items: start;
+    }
+    .honest-visual {
+      background: var(--black);
+      border-radius: 12px;
+      padding: 40px 32px;
+      text-align: center;
+      color: var(--white);
+    }
+    .honest-visual h3 {
+      font-size: 24px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .honest-visual p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+    }
+    .honest-list {
+      list-style: none;
+    }
+    .honest-list li {
+      padding: 8px 0;
+      padding-left: 28px;
+      position: relative;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .honest-list li::before {
+      content: "\2192";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .honest-list .bold { font-weight: 600; }
+
+    /* --- WHAT IS SECTION --- */
+    .what-is-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .what-is-content p {
+      font-size: 17px;
+      margin-bottom: 16px;
+    }
+    .what-is-highlights {
+      text-align: center;
+      margin: 32px 0;
+    }
+    .what-is-highlights p {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 8px 0;
+    }
+
+    /* --- FEATURE CARDS --- */
+    .feature-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .feature-card {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 24px;
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 32px;
+      align-items: start;
+    }
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gold);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      flex-shrink: 0;
+    }
+    .feature-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-decoration: underline;
+      text-decoration-color: var(--gold);
+      text-underline-offset: 4px;
+    }
+    .feature-card p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .feature-card ul {
+      list-style: none;
+      margin-top: 8px;
+    }
+    .feature-card ul li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      padding: 3px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .feature-card ul li::before {
+      content: "\2022";
+      position: absolute;
+      left: 4px;
+      color: var(--gold);
+    }
+    .feature-note {
+      font-size: 14px;
+      font-style: italic;
+      color: rgba(255,255,255,0.4);
+      margin-top: 8px;
+    }
+
+    /* --- FOR / NOT FOR --- */
+    .for-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 40px;
+    }
+    .for-col h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .for-col h3 .highlight {
+      text-decoration: underline;
+      text-decoration-color: var(--gold);
+      text-underline-offset: 4px;
+    }
+    .for-col h3 .highlight-not {
+      background: var(--gold);
+      color: var(--black);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 18px;
+    }
+    .for-list {
+      list-style: none;
+    }
+    .for-list li {
+      padding: 10px 0;
+      padding-left: 28px;
+      position: relative;
+      font-size: 15px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .for-list li:last-child { border: none; }
+    .for-list li .marker {
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+    .for-list.yes li .marker { color: var(--gold); }
+    .for-list.no li .marker { color: #cc3333; }
+
+    /* --- NORMALLY SECTION --- */
+    .normally-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-top: 40px;
+    }
+    .normally-visual {
+      background: var(--black);
+      border-radius: 12px;
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--gold);
+    }
+    .normally-visual .icon { font-size: 40px; margin-bottom: 8px; }
+    .normally-visual h4 { font-size: 18px; color: var(--white); }
+    .normally-list {
+      list-style: none;
+    }
+    .normally-list li {
+      padding: 4px 0;
+      padding-left: 24px;
+      position: relative;
+      font-size: 15px;
+    }
+    .normally-list li::before {
+      content: "\2022";
+      position: absolute;
+      left: 4px;
+      color: var(--gold);
+    }
+    .normally-note {
+      font-style: italic;
+      color: var(--gray);
+      margin-top: 16px;
+      font-size: 15px;
+    }
+
+    /* --- FINAL OFFER BOX --- */
+    .final-offer {
+      background: var(--black);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 48px 40px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .final-offer h3 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+    }
+    .final-offer h2 {
+      font-size: clamp(22px, 3vw, 32px);
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .final-offer .price-original { color: rgba(255,255,255,0.4); }
+    .final-offer .price-today { color: var(--gold); font-size: 16px; }
+    .final-offer .price-today .amount { font-size: 36px; }
+    .final-offer-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 32px;
+      text-align: left;
+      margin: 24px 0;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .final-offer-features li {
+      list-style: none;
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      padding: 4px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .final-offer-features li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .final-offer .offer-note {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    /* --- TESTIMONIALS --- */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .testi-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 28px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .testi-stars { color: var(--gold); font-size: 14px; margin-bottom: 12px; }
+    .testi-text {
+      font-size: 15px;
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      color: var(--dark-gray);
+    }
+    .testi-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray);
+    }
+
+    /* --- FAQ --- */
+    .faq-list { margin-top: 40px; }
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 20px 0;
+    }
+    .faq-q {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .faq-a {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+    }
+
+    /* --- FOOTER --- */
+    .offer-footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .offer-footer p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+    }
+    .offer-footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .honest-grid, .for-grid, .normally-grid, .testi-grid, .final-offer-features {
+        grid-template-columns: 1fr;
+      }
+      .feature-card {
+        grid-template-columns: 1fr;
+      }
+      .feature-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 24px;
+      }
+      .final-offer { padding: 32px 24px; }
+      .offer-section { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGO -->
+  <div class="offer-logo">
+    <span class="offer-logo-text">Aron B. Waters</span>
+  </div>
+
+  <!-- HERO -->
+  <div class="offer-hero">
+    <h1>The 7-Day System That Helps You <span class="text-gold">Uncover What's Been Buried</span> Beneath the Noise</h1>
+    <p class="subtitle">Voice notes, written prompts, and guided inner work, delivered daily. 15-20 minutes a day. No hustle. No fluff. Just the real work that changes everything.</p>
+    <p class="available">&#9660; Available to you right now &#9660;</p>
+    <div class="video-placeholder">
+      <div class="play-btn">
+        <svg width="24" height="28" viewBox="0 0 18 22" fill="none"><path d="M2 1.5L16 11L2 20.5V1.5Z" fill="#161616"/></svg>
+      </div>
+    </div>
+    <p class="video-caption">Video coming soon</p>
+    <a href="https://stan.store/aronbwaters/p/ignite-your-spark-nug2yz7q" class="btn-cta" target="_blank">Yes! Give Me The 7-Day Spark Challenge For &euro;47</a>
+  </div>
+
+  <!-- PRODUCT NAME + PRICING -->
+  <div class="offer-section cream text-center">
+    <div class="offer-container">
+      <p class="section-label">The 7-Day Spark Challenge</p>
+      <h2 class="section-title">Ignite Your Spark</h2>
+      <p class="section-subtitle" style="margin:0 auto;">The fastest, most honest way to stop guessing, stop performing, and start reconnecting with who you actually are, in just 15-20 minutes a day.</p>
+      <a href="https://stan.store/aronbwaters/p/ignite-your-spark-nug2yz7q" class="btn-cta" target="_blank" style="margin-top:32px;">Yes! Give Me The Spark Challenge For &euro;47</a>
+      <div class="price-block">
+        <p class="price-original">Normally &euro;97</p>
+        <p class="price-today">Today: <span class="amount">&euro;47</span></p>
+      </div>
+      <p class="price-note">This private price is only available on this page as a thank-you for taking action.</p>
+    </div>
+  </div>
+
+  <!-- LET'S BE HONEST -->
+  <div class="offer-section">
+    <div class="offer-container-wide">
+      <h2 class="section-title text-center">Let's Be Honest About Where You're At</h2>
+      <div class="honest-grid">
+        <div class="honest-visual">
+          <div style="font-size:48px;margin-bottom:16px;">&#128293;</div>
+          <h3>Ignite Your Spark</h3>
+          <p>7-Day Challenge</p>
+        </div>
+        <div>
+          <p style="margin-bottom:16px;">If you're here, you don't have a motivation problem.</p>
+          <p class="bold" style="font-weight:600;margin-bottom:16px;">You have a clarity problem.</p>
+          <ul class="honest-list">
+            <li>You feel something bigger inside you, but you can't name it</li>
+            <li>You've read the books, done the journaling, but nothing actually shifted</li>
+            <li>You're performing a version of yourself that doesn't feel like you</li>
+            <li>Old patterns run on repeat: perfectionism, self-doubt, fear of judgment</li>
+            <li>You're tired of "hustle" advice when all you want is alignment</li>
+          </ul>
+          <p style="margin-top:20px;"><strong>You don't need more tips.</strong></p>
+          <p>You need a guided way to look inward and reconnect with what's already there.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT IS IT -->
+  <div class="offer-section cream text-center">
+    <div class="offer-container">
+      <h2 class="section-title">What Is The 7-Day Spark Challenge?</h2>
+      <div class="what-is-content">
+        <p>It's a guided 7-day activation delivered daily via voice notes and written prompts. Think of it as the system that strips away the layers that aren't you, so you can finally see what's underneath.</p>
+        <div class="what-is-highlights">
+          <p><strong>No live calls.</strong></p>
+          <p><strong>No overwhelming content.</strong></p>
+          <p><strong>No noise.</strong></p>
+        </div>
+        <p>Just the <strong>highest-leverage inner work</strong>, in the right order, so you can move with clarity.</p>
+        <p style="margin-top:8px;">Think of this as the missing layer between "something feels off" and "I finally know who I am."</p>
+      </div>
+      <a href="https://stan.store/aronbwaters/p/ignite-your-spark-nug2yz7q" class="btn-cta" target="_blank" style="margin-top:32px;">Yes! Give Me The Spark Challenge For &euro;47</a>
+    </div>
+  </div>
+
+  <!-- WHAT YOU GET INSIDE -->
+  <div class="offer-section dark">
+    <div class="offer-container-wide">
+      <h2 class="section-title text-center">What You Get Inside The 7-Day Spark Challenge</h2>
+      <div class="feature-cards">
+
+        <div class="feature-card">
+          <div class="feature-icon">&#127911;</div>
+          <div>
+            <h3>Daily Voice Notes From Aron</h3>
+            <p>Each morning, you'll receive a personal voice note that walks you through that day's inner work. It's like having a coach in your ear, minus the price tag.</p>
+            <ul>
+              <li>Warm, direct guidance in my voice</li>
+              <li>No scripts, no filler, just real talk</li>
+              <li>15-20 minutes per day</li>
+            </ul>
+            <p class="feature-note">This alone removes 90% of the guesswork.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#128221;</div>
+          <div>
+            <h3>Written Prompts + Exercises</h3>
+            <p>Each day comes with a reflection prompt designed to surface what's been buried. These aren't generic journal questions. They go where most people are afraid to look.</p>
+            <ul>
+              <li>Targeted to dissolve specific patterns</li>
+              <li>Short enough to finish, deep enough to shift something</li>
+            </ul>
+            <p class="feature-note">No busywork. No identity crisis. Just clarity and resonance.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#10024;</div>
+          <div>
+            <h3>Your Spark Archetype Reveal</h3>
+            <p>On Day 6, you'll discover which of the 4 Spark Archetypes you are: Creator, Guide, Activator, or Healer.</p>
+            <ul>
+              <li>Understand how your gift naturally shows up</li>
+              <li>Name what you've always known but couldn't articulate</li>
+              <li>See why certain paths never felt right</li>
+            </ul>
+            <p class="feature-note">This is about leverage, not hustling harder.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#128640;</div>
+          <div>
+            <h3>Your Personal Spark Statement</h3>
+            <p>By Day 7, you'll write your own declaration: who you are, what you carry, and what you're here to do.</p>
+            <ul>
+              <li>Protect deep work</li>
+              <li>Reduce decision fatigue</li>
+              <li>Build momentum without burnout</li>
+            </ul>
+            <p class="feature-note">Because willpower is fragile. Statements are permanent.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- WHO THIS IS FOR -->
+  <div class="offer-section">
+    <div class="offer-container-wide">
+      <h2 class="section-title text-center">Who The Spark Challenge Is For</h2>
+      <div class="for-grid">
+        <div class="for-col">
+          <h3>This Is For You <span class="highlight">If</span>:</h3>
+          <ul class="for-list yes">
+            <li><span class="marker">&#10140;</span> You feel something is "off" but can't name it</li>
+            <li><span class="marker">&#10140;</span> You value depth, simplicity, and leverage</li>
+            <li><span class="marker">&#10140;</span> You want a gentle, guided way to start looking inward</li>
+            <li><span class="marker">&#10140;</span> You want something you can <u>actually implement</u></li>
+          </ul>
+        </div>
+        <div class="for-col">
+          <h3>This Is <span class="highlight-not">NOT</span> For You If:</h3>
+          <ul class="for-list no">
+            <li><span class="marker">&#10005;</span> You want shortcuts</li>
+            <li><span class="marker">&#10005;</span> You want someone to do it for you</li>
+            <li><span class="marker">&#10005;</span> You want guarantees without effort</li>
+            <li><span class="marker">&#10005;</span> You're not willing to be honest with yourself</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top:40px;">
+        <a href="https://stan.store/aronbwaters/p/ignite-your-spark-nug2yz7q" class="btn-cta" target="_blank">Yes! Give Me The Spark Challenge For &euro;47</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7-DAY BREAKDOWN -->
+  <div class="offer-section gold-section">
+    <div class="offer-container">
+      <h2 class="section-title text-center">Your 7-Day Transformation Blueprint</h2>
+      <p class="text-center" style="margin-bottom:40px;font-size:15px;">Each day builds on the last. You'll move from buried to clear in one week.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+        <div style="background:var(--black);border-radius:10px;padding:24px;color:var(--white);text-align:center;">
+          <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:8px;">Day 01</div>
+          <h4 style="font-size:16px;margin-bottom:6px;">The Honest Look</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,0.5);">Complete a short energy audit. Where is your life leaking?</p>
+        </div>
+        <div style="background:var(--black);border-radius:10px;padding:24px;color:var(--white);text-align:center;">
+          <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:8px;">Day 02</div>
+          <h4 style="font-size:16px;margin-bottom:6px;">Before the World Got to You</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,0.5);">Go back to age 7-12. What did you love before you were told who to be?</p>
+        </div>
+        <div style="background:var(--black);border-radius:10px;padding:24px;color:var(--white);text-align:center;">
+          <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:8px;">Day 03</div>
+          <h4 style="font-size:16px;margin-bottom:6px;">Your Invisible Gifts</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,0.5);">Identify 3 things people always come to you for, without you even offering.</p>
+        </div>
+        <div style="background:var(--black);border-radius:10px;padding:24px;color:var(--white);text-align:center;">
+          <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:8px;">Day 04</div>
+          <h4 style="font-size:16px;margin-bottom:6px;">The Layer That Isn't You</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,0.5);">Name the belief you carry that was given to you, not chosen.</p>
+        </div>
+        <div style="background:var(--black);border-radius:10px;padding:24px;color:var(--white);text-align:center;">
+          <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:8px;">Day 05</div>
+          <h4 style="font-size:16px;margin-bottom:6px;">The Activation</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,0.5);">Take ONE small action toward something your true self wants.</p>
+        </div>
+        <div style="background:var(--black);border-radius:10px;padding:24px;color:var(--white);text-align:center;">
+          <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:8px;">Day 06</div>
+          <h4 style="font-size:16px;margin-bottom:6px;">Your Spark Archetype</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,0.5);">Discover which of the 4 archetypes you are: Creator, Guide, Activator, or Healer.</p>
+        </div>
+        <div style="background:var(--black);border-radius:10px;padding:24px;color:var(--white);text-align:center;">
+          <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:8px;">Day 07</div>
+          <h4 style="font-size:16px;margin-bottom:6px;">The Declaration</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,0.5);">Write your personal spark statement: who you are, what you're here to do.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="offer-section cream">
+    <div class="offer-container-wide">
+      <h2 class="section-title text-center">Real Words From <span class="text-gold">Real People</span></h2>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <p class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="testi-text">"Day 2 broke something open in me. I remembered things I hadn't thought about in 20 years, and suddenly everything made sense."</p>
+          <p class="testi-name">-- First Student</p>
+        </div>
+        <div class="testi-card">
+          <p class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="testi-text">"I've done courses that cost 10x this and didn't come close. Aron goes places other coaches are afraid to go."</p>
+          <p class="testi-name">-- Second Student</p>
+        </div>
+        <div class="testi-card">
+          <p class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="testi-text">"The energy audit alone was a revelation. I finally understood why I felt drained all the time, and it wasn't what I expected."</p>
+          <p class="testi-name">-- Third Student</p>
+        </div>
+        <div class="testi-card">
+          <p class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="testi-text">"I didn't think 7 days could change anything. By day 5, I had words for what I'd always carried but never understood."</p>
+          <p class="testi-name">-- Fourth Student</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY THIS WORKS -->
+  <div class="offer-section">
+    <div class="offer-container">
+      <h2 class="section-title text-center">Why This Works When <span class="text-gold">Everything Else</span> Fails</h2>
+      <div class="normally-grid" style="margin-top:40px;">
+        <div class="normally-visual">
+          <div class="icon">&#128293;</div>
+          <h4>Ignite Your Spark</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px;">7-Day Challenge</p>
+        </div>
+        <div>
+          <p style="margin-bottom:16px;">The Spark Challenge includes:</p>
+          <ul class="normally-list">
+            <li>7 daily voice notes from Aron</li>
+            <li>Targeted reflection prompts per day</li>
+            <li>Your Spark Archetype reveal</li>
+            <li>A personal spark statement you'll carry forward</li>
+            <li>A foundation that compounds across every area of your life</li>
+          </ul>
+          <p class="normally-note">I don't discount this. I don't run sales. This page is the only place you'll see this price.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="offer-section dark">
+    <div class="offer-container">
+      <h2 class="section-title text-center">Frequently Asked <span class="text-gold">Questions</span></h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <p class="faq-q">How is the challenge delivered?</p>
+          <p class="faq-a">Daily via voice notes and short written prompts. Each day takes 15-20 minutes. You move through it at your own pace, no live calls, no deadlines.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What if I miss a day?</p>
+          <p class="faq-a">No problem. The content is yours to keep. Go at your rhythm. Some people do it in 7 days, others stretch it out. There's no wrong way.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Is this the same as the full course?</p>
+          <p class="faq-a">No. This is the 7-Day Spark Challenge, a focused activation sprint. The full Discover Your Unique Talents &amp; Gifts course goes much deeper across 6 modules. Think of this as the spark that lights the fire.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Do I need any prior experience with inner work?</p>
+          <p class="faq-a">Not at all. This meets you where you are. Whether you're brand new or have been doing the work for years, the prompts will take you somewhere real.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Why &euro;47?</p>
+          <p class="faq-a">This is a private thank-you price for people who've already taken a step by downloading the guide. It's not available anywhere else. Once you leave this page, it returns to the regular price.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL OFFER -->
+  <div class="offer-section cream">
+    <div class="offer-container">
+      <h2 class="section-title text-center">Your Private Thank-You Page Offer</h2>
+      <div class="final-offer">
+        <h3>The 7-Day Spark Challenge</h3>
+        <h2>Ignite Your Spark</h2>
+        <p class="price-original">Normally: &euro;97</p>
+        <p class="price-today">Today: <span class="amount">&euro;47</span></p>
+        <ul class="final-offer-features">
+          <li>7 daily voice notes from Aron</li>
+          <li>Written prompts + exercises</li>
+          <li>Spark Archetype reveal</li>
+          <li>Personal spark statement</li>
+          <li>Instant access, no waiting</li>
+          <li>Keep forever, return anytime</li>
+        </ul>
+        <a href="https://stan.store/aronbwaters/p/ignite-your-spark-nug2yz7q" class="btn-cta full-width" target="_blank" style="max-width:500px;margin:0 auto;display:block;">Yes! Give Me The Spark Challenge For &euro;47</a>
+        <p class="offer-note">This offer is not available anywhere else. It's not on the website. It's not on social media. It expires when you leave this page.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="offer-footer">
+    <p>&copy; 2026 Aron B. Waters. All rights reserved.</p>
+    <p style="margin-top:8px;">
+      <a href="privacy-policy.html">Privacy Policy</a> &middot;
+      <a href="terms-of-service.html">Terms of Service</a> &middot;
+      <a href="disclaimer.html">Disclaimer</a>
+    </p>
+    <p style="margin-top:8px;">Results vary based on individual effort, background, and circumstances.</p>
+  </div>
+
+</body>
+</html>

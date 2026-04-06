@@ -287,8 +287,11 @@
         <p data-lang="nl">Vertel ons iets over jouw evenement of organisatie en we nemen binnen 2 werkdagen contact met je op.</p>
       </div>
 
-      <!-- Wire up with Formspree, Netlify Forms, or custom backend -->
-      <form class="contact-form fade-in" id="speaking-form">
+      <form class="contact-form fade-in" id="speaking-form" action="https://formsubmit.co/hello@aronbwaters.com" method="POST">
+            <input type="hidden" name="_subject" value="New Speaking Enquiry — aronbwaters.com">
+            <input type="hidden" name="_next" value="https://aronbwaters.com/speaking.html?sent=true">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" style="display:none">
         <div class="form-group">
           <label data-lang="en" for="speak-name">Name</label>
           <label data-lang="nl" for="speak-name">Naam</label>
@@ -387,10 +390,11 @@
         <a href="coaching.html" data-lang="nl">1:1 Coaching</a>
       </div>
       <div class="footer-col">
-        <h4 data-lang="en">Free Resources</h4>
-        <h4 data-lang="nl">Gratis Bronnen</h4>
-        <a href="https://qzzr.com/view/7L3DgQtn" data-lang="en">Spark Archetype Quiz</a>
-        <a href="https://qzzr.com/view/7L3DgQtn" data-lang="nl">Vonk Archetype Quiz</a>
+        <h4>Legal</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="dmca-policy.html">DMCA Policy</a>
       </div>
     </div>
     <div class="footer-bottom">

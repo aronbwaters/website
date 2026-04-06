@@ -153,39 +153,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- Simple form handling (contact page) ---
-  const contactForm = document.querySelector('#contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      // In production, replace with actual form handler (Formspree, Netlify Forms, etc.)
-      const btn = contactForm.querySelector('button[type="submit"]');
-      const originalText = btn.textContent;
-      btn.textContent = currentLang === 'nl' ? 'Verstuurd!' : 'Sent!';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.disabled = false;
-        contactForm.reset();
-      }, 3000);
-    });
-  }
-
-  // --- Speaking form handling ---
-  const speakingForm = document.querySelector('#speaking-form');
-  if (speakingForm) {
-    speakingForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = speakingForm.querySelector('button[type="submit"]');
-      const originalText = btn.textContent;
-      btn.textContent = currentLang === 'nl' ? 'Verstuurd!' : 'Sent!';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.disabled = false;
-        speakingForm.reset();
-      }, 3000);
-    });
+  // --- Form success feedback (after redirect back with ?sent=true) ---
+  if (window.location.search.includes('sent=true')) {
+    const form = document.querySelector('#contact-form, #speaking-form');
+    if (form) {
+      const btn = form.querySelector('button[type="submit"]');
+      if (btn) {
+        const originalText = btn.textContent;
+        btn.textContent = currentLang === 'nl' ? 'Verstuurd!' : 'Sent!';
+        btn.style.background = '#2e7d32';
+        btn.style.color = '#fff';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 4000);
+      }
+    }
   }
 
   // --- Confetti on button click ---

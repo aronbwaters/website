@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your North Star | Aron B. Waters</title>
+  <meta name="description" content="Get the free guide that helps you cut through the noise and reconnect with what truly matters. Join the newsletter.">
+  <link rel="icon" type="image/png" href="assets/img/abw-monogram.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #e0a010;
+      --gold-light: #f5d060;
+      --gold-dark: #b8830d;
+      --black: #161616;
+      --dark-gray: #333333;
+      --gray: #666666;
+      --light-gray: #e8e4dc;
+      --off-white: #faf8f4;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark-gray);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- Brand Top --- */
+    .nl-brand {
+      text-align: center;
+      padding: 32px 24px 0;
+    }
+    .nl-brand img {
+      height: 36px;
+      width: auto;
+      filter: brightness(0) saturate(100%) invert(64%) sepia(55%) saturate(487%) hue-rotate(10deg) brightness(97%) contrast(88%);
+    }
+
+    /* --- Hero --- */
+    .nl-hero {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 60px 32px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .nl-hero-text h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--black);
+      margin-bottom: 24px;
+    }
+    .nl-hero-text h1 span {
+      color: var(--gold);
+    }
+    .nl-hero-text p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+    .nl-hero-text p.nl-proof {
+      font-weight: 600;
+      color: var(--dark-gray);
+      font-size: 15px;
+    }
+    .nl-hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .nl-guide-mock {
+      width: 280px;
+      height: 380px;
+      background: var(--black);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: 20px 20px 60px rgba(0,0,0,0.15), -5px -5px 20px rgba(0,0,0,0.05);
+      transform: rotate(3deg);
+    }
+    .nl-guide-mock .guide-star {
+      font-size: 40px;
+      margin-bottom: 20px;
+      display: block;
+      filter: drop-shadow(0 0 12px rgba(224,160,16,0.6));
+    }
+    .nl-guide-mock .guide-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .nl-guide-mock .guide-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .nl-guide-mock .guide-author {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 24px;
+      letter-spacing: 0.05em;
+    }
+
+    /* --- MailerLite Embedded Form --- */
+    .ml-embedded {
+      margin-top: 28px;
+    }
+
+    /* --- Testimonials --- */
+    .nl-testimonials {
+      background: var(--off-white);
+      padding: 60px 32px;
+    }
+    .nl-testimonials-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .nl-testimonial {
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      border-radius: 12px;
+      padding: 32px 28px;
+    }
+    .nl-testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .nl-testimonial-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--gray);
+    }
+    .nl-testimonial-name {
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--black);
+    }
+    .nl-testimonial-role {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+    .nl-testimonial p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--dark-gray);
+    }
+    .nl-testimonial strong {
+      font-weight: 600;
+    }
+
+    /* --- Footer --- */
+    .nl-footer {
+      background: var(--black);
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .nl-footer p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+    .nl-footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+    }
+    .nl-footer-links a {
+      font-size: 13px;
+      color: var(--gold);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nl-footer-links a:hover {
+      opacity: 0.7;
+    }
+    .nl-footer-links span {
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .nl-hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 24px 60px;
+      }
+      .nl-hero-visual {
+        order: -1;
+      }
+      .nl-guide-mock {
+        width: 220px;
+        height: 300px;
+        padding: 30px 24px;
+      }
+      .nl-guide-mock .guide-title {
+        font-size: 18px;
+      }
+      .nl-form {
+        flex-direction: column;
+      }
+      .nl-testimonials-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BRAND -->
+  <div class="nl-brand">
+    <img src="assets/img/logo-abw.png" alt="Aron B. Waters">
+  </div>
+
+  <!-- HERO -->
+  <div class="nl-hero">
+    <div class="nl-hero-text">
+      <h1>Find your <span>North Star.</span> Live from your core.</h1>
+      <p>A free guide for anyone who feels there's more to life than what they're living — but doesn't know where to start.</p>
+      <p class="nl-proof">Join 500+ people who already started the journey back to themselves.</p>
+      <p>Get the guide that helps you cut through the noise, reconnect with what truly matters, and take the first real step toward living from who you really are.</p>
+      <div class="ml-embedded" data-form="wGeUY4" style="margin-top:28px;"></div>
+    </div>
+    <div class="nl-hero-visual">
+      <div class="nl-guide-mock">
+        <span class="guide-star">&#9733;</span>
+        <div class="guide-title">Find Your North Star</div>
+        <div class="guide-sub">A Free Guide</div>
+        <div class="guide-author">Aron B. Waters</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="nl-footer">
+    <p>&copy; 2026 Aron B. Waters. All rights reserved.</p>
+    <div class="nl-footer-links">
+      <a href="contact.html">Contact</a>
+      <span>|</span>
+      <a href="dmca-policy.html">DMCA Policy</a>
+      <span>|</span>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <span>|</span>
+      <a href="terms-of-service.html">Terms of Service</a>
+    </div>
+  </div>
+
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1878777');
+
+    // Redirect to offer page 10 seconds after successful form submission
+    var origSuccess = window.ml_webform_success_39500965;
+    window.ml_webform_success_39500965 = function() {
+      if (typeof origSuccess === 'function') origSuccess();
+      setTimeout(function() {
+        window.location.href = 'ignite-offer.html';
+      }, 10000);
+    };
+
+    // Also watch for the MailerLite success state via MutationObserver as fallback
+    document.addEventListener('DOMContentLoaded', function() {
+      var target = document.querySelector('.ml-embedded');
+      if (!target) return;
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+          if (m.target.querySelector && m.target.querySelector('.ml-form-successBody[style*="display: block"], .ml-form-successContent')) {
+            setTimeout(function() {
+              window.location.href = 'ignite-offer.html';
+            }, 10000);
+            observer.disconnect();
+          }
+        });
+      });
+      observer.observe(target, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
+    });
+  </script>
+</body>
+</html>
