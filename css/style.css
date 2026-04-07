@@ -6,6 +6,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 /* --- CSS Variables --- */
 :root {
@@ -495,7 +496,14 @@ section {
   display: flex;
   gap: 16px;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+}
+
+.hero-cta .split-reveal {
+  font-size: clamp(28px, 4vw, 48px);
+  min-width: 280px;
+  text-align: center;
 }
 
 /* --- Pain Section --- */
@@ -1908,6 +1916,114 @@ section {
   font-size: var(--p2);
   color: var(--gray);
   line-height: 1.7;
+}
+
+/* --- Split Reveal Hover Effect ---
+   Usage:
+   <div class="split-reveal" data-reveal="NOW IS THE TIME">
+     <span class="split-reveal-text">GET STARTED</span>
+   </div>
+*/
+.split-reveal {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  overflow: hidden;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(22, 22, 22, 0.7);
+  line-height: 1.1;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Top half */
+.split-reveal::before,
+/* Bottom half */
+.split-reveal::after {
+  content: attr(data-main);
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  white-space: nowrap;
+}
+.split-reveal::before {
+  top: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+.split-reveal::after {
+  top: 0;
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+}
+
+/* The visible base text (stays in flow for sizing) */
+.split-reveal-text {
+  visibility: hidden;
+  display: block;
+  white-space: nowrap;
+}
+
+/* The reveal bar */
+.split-reveal-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  background: var(--gold);
+  color: var(--black);
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 6px 16px;
+  white-space: nowrap;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.05s;
+  z-index: 1;
+}
+
+/* Hover / active state */
+.split-reveal:hover::before,
+.split-reveal.active::before {
+  transform: translateY(-40%);
+}
+.split-reveal:hover::after,
+.split-reveal.active::after {
+  transform: translateY(40%);
+}
+.split-reveal:hover .split-reveal-bar,
+.split-reveal.active .split-reveal-bar {
+  transform: translateY(-50%) scaleY(1);
+}
+
+/* --- Split Text Animation --- */
+.split-text-ready .split-text-unit {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(18px) scaleY(1.1);
+  will-change: opacity, transform;
+}
+.split-text-animate .split-text-unit {
+  animation: splitTextIn var(--split-duration, 600ms) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes splitTextIn {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scaleY(1.1);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
 }
 
 /* --- Animations --- */

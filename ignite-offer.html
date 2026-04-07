@@ -553,6 +553,30 @@
       .final-offer { padding: 32px 24px; }
       .offer-section { padding: 60px 24px; }
     }
+
+    /* --- Split Text Animation --- */
+    .split-text-ready .split-text-unit {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(18px) scaleY(1.1);
+      will-change: opacity, transform;
+    }
+    .split-text-animate .split-text-unit {
+      animation: splitTextIn var(--split-duration, 600ms) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    @keyframes splitTextIn {
+      0% {
+        opacity: 0;
+        transform: translateY(18px) scaleY(1.1);
+      }
+      40% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scaleY(1);
+      }
+    }
   </style>
 </head>
 <body>
@@ -564,7 +588,7 @@
 
   <!-- HERO -->
   <div class="offer-hero">
-    <h1>The 7-Day System That Helps You <span class="text-gold">Uncover What's Been Buried</span> Beneath the Noise</h1>
+    <h1 class="split-text" data-stagger="70" data-delay="200">The 7-Day System That Helps You <span class="text-gold">Uncover What's Been Buried</span> Beneath the Noise</h1>
     <p class="subtitle">Voice notes, written prompts, and guided inner work, delivered daily. 15-20 minutes a day. No hustle. No fluff. Just the real work that changes everything.</p>
     <p class="available">&#9660; Available to you right now &#9660;</p>
     <div class="video-placeholder">
@@ -886,12 +910,13 @@
   <div class="offer-footer">
     <p>&copy; 2026 Aron B. Waters. All rights reserved.</p>
     <p style="margin-top:8px;">
-      <a href="privacy-policy.html">Privacy Policy</a> &middot;
-      <a href="terms-of-service.html">Terms of Service</a> &middot;
-      <a href="disclaimer.html">Disclaimer</a>
+      <a href="/privacy-policy">Privacy Policy</a> &middot;
+      <a href="/terms-of-service">Terms of Service</a> &middot;
+      <a href="/disclaimer">Disclaimer</a>
     </p>
     <p style="margin-top:8px;">Results vary based on individual effort, background, and circumstances.</p>
   </div>
 
+  <script src="js/split-text.js"></script>
 </body>
 </html>
