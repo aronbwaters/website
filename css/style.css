@@ -721,6 +721,20 @@ section {
   font-size: 28px;
 }
 
+.offer-card .offer-icon.offer-icon-img {
+  width: 160px;
+  height: 160px;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.offer-card .offer-icon.offer-icon-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .offer-card h3 {
   font-size: var(--h5);
   margin-bottom: 8px;
@@ -2370,6 +2384,8 @@ section {
   transition: var(--transition);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .speaking-topic-card:hover {
@@ -2381,6 +2397,20 @@ section {
 .speaking-topic-icon {
   font-size: 36px;
   margin-bottom: 16px;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  background: transparent;
+  border-radius: 0;
+}
+
+.speaking-topic-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .speaking-topic-card h3 {
@@ -2543,6 +2573,14 @@ section {
 
 .accordion-trigger[aria-expanded="true"] .accordion-chevron {
   transform: rotate(180deg);
+}
+
+.accordion-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: 4px;
 }
 
 .accordion-body {
