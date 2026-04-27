@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Call with Aron B. Waters</title>
+  <meta name="description" content="Book a free discovery call with Aron B. Waters.">
+  <link rel="icon" type="image/png" href="assets/img/abw-monogram.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    html, body { margin: 0; background: var(--cream); }
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    .navbar { flex: 0 0 auto; }
+    .booking-viewport {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 56px 16px 24px;
+    }
+    .tidycal-embed {
+      width: 100%;
+      max-width: 1100px;
+      min-width: 320px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    @media (max-width: 768px) {
+      .booking-viewport { padding: 32px 8px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><img src="assets/img/logo-abw.png" alt="Aron B. Waters"><span class="logo-glow"></span></a>
+      <div class="nav-links">
+        <a href="/about" data-lang="en">About</a><a href="/about" data-lang="nl">About</a>
+        <a href="/coaching" data-lang="en">Work with me</a><a href="/coaching" data-lang="nl">Work with me</a>
+        <a href="/programs" data-lang="en">Programs</a><a href="/programs" data-lang="nl">Programs</a>
+        <a href="/speaking" data-lang="en">Speaking &amp; Training</a><a href="/speaking" data-lang="nl">Speaking &amp; Training</a>
+        <a href="/contact" data-lang="en">Contact</a><a href="/contact" data-lang="nl">Contact</a>
+        <div class="lang-toggle"><button data-set-lang="en">EN</button><button data-set-lang="nl">NL</button></div>
+      </div>
+      <div class="nav-hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- ========== TIDYCAL EMBED ========== -->
+  <main class="booking-viewport">
+    <div class="tidycal-embed" data-path="aronbwaters/discovery-call"></div>
+    <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

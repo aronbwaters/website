@@ -6,8 +6,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- Language Toggle ---
+  // NL temporarily disabled — site is EN-only. To re-enable, remove the next line.
+  const EN_ONLY = true;
   const LANGS = ['en', 'nl'];
-  let currentLang = localStorage.getItem('abw-lang') || 'en';
+  let currentLang = EN_ONLY ? 'en' : (localStorage.getItem('abw-lang') || 'en');
 
   function setLanguage(lang) {
     currentLang = lang;
@@ -132,6 +134,73 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // --- Testimonial carousel (seamless infinite loop with clones) ---
+  const carouselTrack = document.getElementById('testimonial-track');
+  if (carouselTrack) {
+    const originals = [...carouselTrack.querySelectorAll('.carousel-quote')];
+    if (originals.length > 1) {
+      // Clone first slide to end, last slide to start
+      const firstClone = originals[0].cloneNode(true);
+      const lastClone = originals[originals.length - 1].cloneNode(true);
+      firstClone.classList.add('is-clone');
+      lastClone.classList.add('is-clone');
+      carouselTrack.appendChild(firstClone);
+      carouselTrack.insertBefore(lastClone, originals[0]);
+
+      const slides = [...carouselTrack.querySelectorAll('.carousel-quote')];
+      let index = 1; // start at first real slide (after the prepended last-clone)
+      let locked = false;
+
+      // Set initial position without animation
+      const setPos = () => { carouselTrack.scrollLeft = slides[index].offsetLeft; };
+      setPos();
+      window.addEventListener('resize', setPos);
+
+      function waitForScrollTo(target) {
+        return new Promise(resolve => {
+          let last = carouselTrack.scrollLeft;
+          let stable = 0;
+          const tick = () => {
+            const cur = carouselTrack.scrollLeft;
+            if (Math.abs(cur - target) < 2) return resolve();
+            if (Math.abs(cur - last) < 0.5) {
+              stable++;
+              if (stable > 3) return resolve();
+            } else {
+              stable = 0;
+            }
+            last = cur;
+            requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+      }
+
+      async function goTo(dir) {
+        if (locked) return;
+        locked = true;
+        index += dir;
+        const targetLeft = slides[index].offsetLeft;
+        carouselTrack.scrollTo({ left: targetLeft, behavior: 'smooth' });
+        await waitForScrollTo(targetLeft);
+        if (index === 0) {
+          index = originals.length;
+          carouselTrack.scrollLeft = slides[index].offsetLeft;
+        } else if (index === slides.length - 1) {
+          index = 1;
+          carouselTrack.scrollLeft = slides[index].offsetLeft;
+        }
+        locked = false;
+      }
+
+      document.querySelectorAll('.carousel-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          goTo(parseInt(btn.dataset.dir, 10));
+        });
+      });
+    }
+  }
 
   // --- Smooth scroll for anchor links ---
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
