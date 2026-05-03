@@ -1,3 +1,15 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/book-a-call",
+      "destination": "https://schedule.aronbwaters.com/discovery-call",
+      "permanent": false
+    },
+    {
+      "source": "/book-a-call.html",
+      "destination": "https://schedule.aronbwaters.com/discovery-call",
+      "permanent": false
+    }
+  ]
 }
