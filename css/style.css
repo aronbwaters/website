@@ -8,6 +8,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+@font-face {
+  font-family: 'ITC Benguiat';
+  src: url('../assets/fonts/ITC-Benguiat/ITC Benguiat/BenguiatStd-Book.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Yearbook Solid';
+  src: url('../assets/fonts/yearbook-solid-regular/Yearbook Solid Regular/Yearbook Solid Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* --- CSS Variables --- */
 :root {
   --gold: #e0a010;
@@ -2861,6 +2875,72 @@ section {
   .logo-ticker-track {
     animation-duration: 12s;
   }
+}
+
+/* --- Programs Listing --- */
+.prog-item {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  padding: 80px 40px;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.prog-item:last-child { border-bottom: none; }
+.prog-item-reverse { flex-direction: row-reverse; }
+.prog-item-image { flex: 0 0 380px; width: 380px; display: flex; justify-content: center; }
+.prog-item-image img {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+}
+.prog-placeholder {
+  width: 100%;
+  height: 500px;
+  border-radius: 12px;
+  background: var(--black);
+  border: 2px solid var(--gold);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  padding: 24px;
+}
+.prog-placeholder span {
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.prog-item-text { flex: 1; }
+.prog-item-text .label { margin-bottom: 12px; display: block; }
+.prog-item-text h2 { font-size: clamp(24px,3vw,40px); margin-bottom: 16px; line-height: 1.2; }
+.prog-item-text p { color: var(--gray); font-size: 18px; line-height: 1.8; margin-bottom: 28px; max-width: 560px; }
+.prog-item-text .btn { display: block; width: fit-content; margin: 0 auto; }
+
+.prog-quiz-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  row-gap: 24px;
+  margin-top: 48px;
+}
+.prog-quiz-text .label { margin-bottom: 12px; display: block; }
+.prog-quiz-text h3 { font-size: 22px; margin-bottom: 12px; }
+.prog-quiz-text p { color: var(--gray); font-size: 16px; line-height: 1.7; margin: 0; }
+.prog-quiz-embed { width: 100%; }
+
+@media (max-width: 768px) {
+  .prog-item { flex-direction: column !important; gap: 32px; padding: 48px 0; }
+  .prog-item-image { width: 100%; flex: none; }
+  .prog-item-image img { height: auto; max-height: 400px; }
+  .prog-placeholder { height: 320px; }
+  .prog-quiz-grid { grid-template-columns: 1fr; row-gap: 16px; }
 }
 
 /* --- Speaking Page --- */
